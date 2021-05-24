@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 RUN apt update \
-    && apt install docker.io -y \
+    && apt install docker.io wget -y \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/test/

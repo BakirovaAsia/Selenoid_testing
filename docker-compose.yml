@@ -12,6 +12,8 @@ services:
   selenoid-ui:
     image: "aerokube/selenoid-ui"
     network_mode: bridge
+    depends_on:
+      - selenoid
     links:
       - selenoid
     ports:

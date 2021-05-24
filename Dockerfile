@@ -2,4 +2,4 @@ FROM aerokube/cm:latest-release
 
 
 
-ENTRYPOINT ["bin/sh/"]  
+ENTRYPOINT ["/bin/sh/"]  

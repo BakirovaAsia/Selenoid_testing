@@ -1,7 +1,8 @@
 version: '3'
 services:
   selenoid:
-    image: "aerokube/cm:latest-release"
+    build:
+      context: .
     network_mode: bridge
     ports:
       - "4445:4444"

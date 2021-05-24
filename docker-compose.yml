@@ -1,13 +1,14 @@
 version: '3'
 services:
   selenoid:
-    image: "aerokube/selenoid"
+    image: "aerokube/cm:latest-release"
     network_mode: bridge
     ports:
-      - "4445:4444"
+      - "4444:4444"
     volumes:
-      - "$PWD:/etc/selenoid/" # assumed current dir contains browsers.json
+      #- "$PWD:/etc/selenoid/" # assumed current dir contains browsers.json
       - "/var/run/docker.sock:/var/run/docker.sock"
+    command: ["selenoid start --vnc"]
   selenoid-ui:
     image: "aerokube/selenoid-ui"
     network_mode: bridge

@@ -1,6 +1,6 @@
 {
     "firefox": {                                     
-      "default": "87",                             
+      "default": "87.0",                             
       "versions": {                                  
         "87.0": {                                    
           "image": "selenoid/firefox:87.0",
@@ -13,7 +13,7 @@
       }
     },
     "chrome": {
-      "default": "89",                             
+      "default": "89.0",                             
       "versions": {     
         "89.0": {                                    
           "image": "selenoid/chrome:89.0",
@@ -22,11 +22,11 @@
         "90.0": {                                    
           "image": "selenoid/chrome:90.0",
           "port": "4444"             
-          }
+        }
       }
     }, 
     "opera": {
-      "default": "75",                             
+      "default": "75.0",                             
       "versions": {     
         "75.0": {                                    
           "image": "selenoid/opera:75.0",

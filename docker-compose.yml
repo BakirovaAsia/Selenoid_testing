@@ -10,3 +10,11 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "$PWD/video:/opt/selenoid/video"
       - "$PWD/logs:/opt/selenoid/logs"
+  selenoid-ui:
+    image: "aerokube/selenoid-ui"
+    network_mode: bridge
+    links:
+      - selenoid
+    ports:
+      - "8081:8080"
+    command: ["--selenoid-uri", "http://selenoid:4444"]

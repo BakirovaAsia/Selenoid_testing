@@ -22,7 +22,8 @@
         "90.0": {                                    
           "image": "selenoid/chrome:90.0",
           "port": "4444"             
-        }
+          }
+      }
     }, 
     "opera": {
       "default": "75",                             

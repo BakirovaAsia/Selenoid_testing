@@ -6,7 +6,7 @@ services:
     ports:
       - "4444:4444"
     volumes:
-      - "$PWD/:/etc/selenoid/" # assumed current dir contains browsers.json
+      - "$PWD/config:/etc/selenoid" # assumed current dir contains browsers.json
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "$PWD/video:/opt/selenoid/video"
       - "$PWD/logs:/opt/selenoid/logs"

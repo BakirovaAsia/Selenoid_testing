@@ -35,5 +35,6 @@
           "image": "selenoid/opera:76.0",
           "port": "4444"             
         }
+      }
     }
 }

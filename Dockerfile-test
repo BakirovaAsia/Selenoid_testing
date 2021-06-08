@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY ./tests/ ./
 RUN pwd && ls -la 
 
-CMD [ "python", "login_as_adm_test.py " ]
+CMD [ "python", "login_as_adm_test.py" ]

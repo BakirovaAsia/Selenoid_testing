@@ -21,3 +21,16 @@ services:
     ports:
       - "8081:8080"
     command: ["--selenoid-uri", "http://selenoid:4444"]
+  web:
+    image: "vitacore/ies:dev"
+    network_mode: bridge
+    ports:
+      - "80:80"
+  testing:
+    build:
+      context: .
+      dockerfile: Dockerfile-test 
+    network_mode: bridge
+    links:
+      - web
+      - selenoid

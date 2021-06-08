@@ -1,0 +1,7 @@
+FROM python:3.10.0b2-alpine
+
+COPY ./tests/ /tmp/tests/
+
+RUN pip install -U pip && pip install --no-cache-dir -r /tmp/tests/requirements.txt
+
+CMD python3 /tmp/tests/login_as_adm_test.py 

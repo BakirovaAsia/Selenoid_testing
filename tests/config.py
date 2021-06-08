@@ -1,1 +1,1 @@
-base_url = "http://web:80/"
+base_url = "http://172.17.0.1:80/"

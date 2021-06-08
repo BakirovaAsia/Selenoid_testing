@@ -22,7 +22,7 @@ services:
       - "8081:8080"
     command: ["--selenoid-uri", "http://selenoid:4444"]
   web:
-    image: "vitacore/ies:dev"
+    image: "vitacore/ies:latest"
     network_mode: bridge
     ports:
       - "80:80"

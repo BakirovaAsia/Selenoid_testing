@@ -7,4 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./tests/ ./
 
-CMD [ "python", "./login_as_adm_test.py " ]
+CMD [ "python", "login_as_adm_test.py " ]

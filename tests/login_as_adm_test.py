@@ -28,14 +28,14 @@ def test_login_admin():
     #driver = webdriver.Chrome(executable_path="./chromedriver", options=chrome_options)
     driver.get(base_url)
     logger.info('Waiting url: %s' % ('%slogin' % base_url))
-    #WebDriverWait(driver, 10).until(EC.url_contains('%slogin' % base_url))
-    logger.info('Enter login')
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'login'))).send_keys('1')
-    logger.info('Enter login')
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'password'))).send_keys('1')
-    logger.info('Press button')
-    assert WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.jss16.MuiButton-containedPrimary.MuiButton-fullWidth'))).click()
-    logger.info('Waiting login')
+    assert WebDriverWait(driver, 10).until(EC.url_contains('%main' % base_url))
+    #logger.info('Enter login')
+    #WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'login'))).send_keys('1')
+    #logger.info('Enter login')
+    #WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'password'))).send_keys('1')
+    #logger.info('Press button')
+    #WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.jss16.MuiButton-containedPrimary.MuiButton-fullWidth'))).click()
+    #logger.info('Waiting login')
     #assert WebDriverWait(driver, 10).until(EC.url_contains('%smain' % base_url)), 'admin'
 
 if __name__ == '__main__':

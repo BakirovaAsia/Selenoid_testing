@@ -5,7 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from config import base_url
+#from config import base_url
 import logging
 
 from capabilities import capabilities
@@ -14,6 +14,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s: %(m
 logger = logging.getLogger()
 
 selenoid_URL = "http://selenoid:4444/wd/hub"
+base_url = "http://web:80/"
 
 def test_login_admin():
     #chrome_options = Options()

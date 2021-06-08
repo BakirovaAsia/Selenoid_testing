@@ -36,7 +36,7 @@ def test_login_admin():
     logger.info('Press button')
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button.ant-btn.ant-btn-primary.LoginPage_form_button_submit__IUtZt'))).click()
     logger.info('Waiting login')
-    assert WebDriverWait(driver, 10).until(EC.url_contains('%smain' % base_url)), 'trying login as admin'
+    assert WebDriverWait(driver, 10).until(EC.url_contains('%smain' % base_url)), 'admin'
 
 
 if __name__ == '__main__':

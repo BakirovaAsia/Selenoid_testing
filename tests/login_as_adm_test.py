@@ -27,7 +27,7 @@ def test_login_admin():
 
     #driver = webdriver.Chrome(executable_path="./chromedriver", options=chrome_options)
     driver.get(base_url)
-    logger.info('Waiting url: %s' % ('%smain' % base_url))
+    assert logger.info('Waiting url: %s' % ('%smain' % base_url))
     #WebDriverWait(driver, 10).until(EC.url_contains('%smain' % base_url))
     
     #logger.info('Enter login')
@@ -38,7 +38,7 @@ def test_login_admin():
     #WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.jss16.MuiButton-containedPrimary.MuiButton-fullWidth'))).click()
     #logger.info('Waiting login')
     #assert WebDriverWait(driver, 10).until(EC.url_contains('%smain' % base_url)), 'main'
-    assert true
+   
 
 if __name__ == '__main__':
     pytest.main(args=['-s', os.path.abspath(__file__)])

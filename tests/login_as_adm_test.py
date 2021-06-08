@@ -26,8 +26,8 @@ def test_login_admin():
         desired_capabilities=capabilities)
 
     #driver = webdriver.Chrome(executable_path="./chromedriver", options=chrome_options)
-    driver.get(base_url)
-    assert logger.info('Waiting url: %s' % ('%smain' % base_url))
+    assert driver.get(base_url)
+    #logger.info('Waiting url: %s' % ('%smain' % base_url))
     #WebDriverWait(driver, 10).until(EC.url_contains('%smain' % base_url))
     
     #logger.info('Enter login')

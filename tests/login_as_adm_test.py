@@ -28,7 +28,7 @@ def test_login_admin():
     #driver = webdriver.Chrome(executable_path="./chromedriver", options=chrome_options)
     driver.get(base_url)
     logger.info('Waiting url: %s' % ('%slogin' % base_url))
-    WebDriverWait(driver, 10).until(EC.url_contains('%slogin' % base_url))
+    #WebDriverWait(driver, 10).until(EC.url_contains('%slogin' % base_url))
     logger.info('Enter login')
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'normal_login_username'))).send_keys('1')
     logger.info('Enter login')

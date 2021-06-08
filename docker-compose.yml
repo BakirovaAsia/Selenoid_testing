@@ -12,7 +12,7 @@ services:
       - "$PWD/logs:/opt/selenoid/logs"
     environment:
       - OVERRIDE_VIDEO_OUTPUT_DIR=$PWD/video
-    link:
+    links:
       - web
     command: ["-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs"]
   selenoid-ui:

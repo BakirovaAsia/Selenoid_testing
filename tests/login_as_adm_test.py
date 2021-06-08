@@ -30,14 +30,13 @@ def test_login_admin():
     logger.info('Waiting url: %s' % ('%slogin' % base_url))
     #WebDriverWait(driver, 10).until(EC.url_contains('%slogin' % base_url))
     logger.info('Enter login')
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'normal_login_username'))).send_keys('1')
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'login'))).send_keys('1')
     logger.info('Enter login')
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'normal_login_password'))).send_keys('1')
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'password'))).send_keys('1')
     logger.info('Press button')
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button.ant-btn.ant-btn-primary.LoginPage_form_button_submit__IUtZt'))).click()
+    assert WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.jss16.MuiButton-containedPrimary.MuiButton-fullWidth'))).click()
     logger.info('Waiting login')
-    assert WebDriverWait(driver, 10).until(EC.url_contains('%smain' % base_url)), 'admin'
-
+    #assert WebDriverWait(driver, 10).until(EC.url_contains('%smain' % base_url)), 'admin'
 
 if __name__ == '__main__':
     pytest.main(args=['-s', os.path.abspath(__file__)])

@@ -1,7 +1,10 @@
-FROM python:3.10.0b2-alpine
+FROM python:3
 
-COPY ./tests/ /tmp/tests/
+WORKDIR /tmp/tests/
 
-RUN pip install -U pip && pip install --no-cache-dir -r /tmp/tests/requirements.txt
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD python3 /tmp/tests/login_as_adm_test.py 
+COPY ./tests/ ./
+
+CMD [ "python", "./login_as_adm_test.py " ]

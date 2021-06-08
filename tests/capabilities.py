@@ -1,4 +1,4 @@
-capabilities ={
+capabilities = [
     {
     "browserName": "chrome",
     "browserVersion": "90.0",
@@ -15,4 +15,4 @@ capabilities ={
         "enableVideo": False
         }
     }
-}
+]

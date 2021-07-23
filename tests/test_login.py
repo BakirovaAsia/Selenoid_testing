@@ -1,16 +1,17 @@
 from config import base_url
 import pytest
-from selenium.webdriver.firefox.webdriver import WebDriver
+#from selenium.webdriver.firefox.webdriver import WebDriver
 #from exp import exp
 #from general_selection import gen_select
 
 from selenium import webdriver
 from capabilities import capabilities
 
-selenoid_URL = "http://selenoid:4444/wd/hub"
+selenoid_URL = "http://192.168.20.178:4444/wd/hub"
+#selenoid_URL = "http://selenoid:4444/wd/hub"
 
 @pytest.fixture()
-№def driver(request):
+#def driver(request):
 #    fox_driver = WebDriver()
 #    fox_driver.implicitly_wait(3)
 #    yield fox_driver

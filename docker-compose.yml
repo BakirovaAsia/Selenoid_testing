@@ -27,7 +27,7 @@ services:
     image: "vitacore/ies:latest"
     network_mode: bridge
     ports:
-      - "80:80"
+      - "180:80"
   testing:
     build:
       context: .

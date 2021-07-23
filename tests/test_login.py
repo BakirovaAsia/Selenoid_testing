@@ -10,16 +10,21 @@ from capabilities import capabilities
 selenoid_URL = "http://selenoid:4444/wd/hub"
 
 @pytest.fixture()
-def driver(request):
+№def driver(request):
 #    fox_driver = WebDriver()
 #    fox_driver.implicitly_wait(3)
 #    yield fox_driver
-    driver = webdriver.Remote(
+    
+
+#def test_login_site(driver: WebDriver):
+def test_login_site():
+
+    driver = .Remote(
         command_executor=selenoid_URL,
         desired_capabilities=capabilities)
-    yield driver
+    
 
-def test_login_site(driver: WebDriver):
+
     driver.get(base_url)
     field_login = driver.find_element_by_id('normal_login_username').send_keys('1')
     field_pass = driver.find_element_by_id('normal_login_password').send_keys('1')

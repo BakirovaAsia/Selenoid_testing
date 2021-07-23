@@ -20,7 +20,7 @@ selenoid_URL = "http://192.168.20.178:4444/wd/hub"
 #def test_login_site(driver: WebDriver):
 def test_login_site():
 
-    driver = .Remote(
+    driver = webdriver.Remote(
         command_executor=selenoid_URL,
         desired_capabilities=capabilities)
     

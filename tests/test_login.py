@@ -16,16 +16,11 @@ selenoid_URL = "http://192.168.20.178:4444/wd/hub"
 #    fox_driver.implicitly_wait(3)
 #    yield fox_driver
     
-
+driver = webdriver.Remote(
+    command_executor=selenoid_URL,
+       desired_capabilities=capabilities)
 #def test_login_site(driver: WebDriver):
 def test_login_site():
-
-    driver = webdriver.Remote(
-        command_executor=selenoid_URL,
-        desired_capabilities=capabilities)
-    
-
-
     driver.get(base_url)
     field_login = driver.find_element_by_id('normal_login_username').send_keys('1')
     field_pass = driver.find_element_by_id('normal_login_password').send_keys('1')

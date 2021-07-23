@@ -5,16 +5,7 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 #from general_selection import gen_select
 
 from selenium import webdriver
-#from capabilities import capabilities
-
-capabilities = {
-    "browserName": "firefox",
-    "browserVersion": "88.0",
-    "selenoid:options": {
-        "enableVNC": True,
-        "enableVideo": True
-    }
-}
+from capabilities import capabilities
 
 selenoid_URL = "http://selenoid:4444/wd/hub"
 

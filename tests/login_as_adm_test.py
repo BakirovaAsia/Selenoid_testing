@@ -31,13 +31,13 @@ def test_login_admin():
     
     WebDriverWait(driver, 10).until(EC.url_contains('%smain' % base_url))
     
-    logger.info('Enter login')
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'login'))).send_keys('1')
-    logger.info('Enter login')
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'password'))).send_keys('1')
-    logger.info('Press button')
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.jss16.MuiButton-containedPrimary.MuiButton-fullWidth'))).click()
-    logger.info('Waiting login')
+    #logger.info('Enter login')
+    #WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'login'))).send_keys('1')
+    #logger.info('Enter login')
+    #WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'password'))).send_keys('1')
+    #logger.info('Press button')
+    #WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.jss16.MuiButton-containedPrimary.MuiButton-fullWidth'))).click()
+    #logger.info('Waiting login')
     assert WebDriverWait(driver, 10).until(EC.url_contains('%smain' % base_url)), 'main'
    
 

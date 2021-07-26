@@ -3,6 +3,6 @@ capabilities = {
     "browserVersion": "89.0",
     "selenoid:options": {
         "enableVNC": True,
-        "enableVideo": False
+        "enableVideo": True
     }
 }

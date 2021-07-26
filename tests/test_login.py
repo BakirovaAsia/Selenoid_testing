@@ -2,14 +2,14 @@ from config import base_url
 import pytest
 #from selenium.webdriver.firefox.webdriver import WebDriver
 #from exp import exp
-from general_selection import gen_select
+#from general_selection import gen_select
 
 from selenium import webdriver
 from capabilities import capabilities
 
 selenoid_URL = "http://192.168.20.178:4444/wd/hub"
 
-#@pytest.fixture()
+@pytest.fixture()
 def driver(request):
     sel_driver = webdriver.Remote(
         command_executor=selenoid_URL,

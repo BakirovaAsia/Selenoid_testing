@@ -7,7 +7,7 @@ import pytest
 from selenium import webdriver
 from capabilities import capabilities
 
-selenoid_URL = "http://192.168.20.178:4444/wd/hub"
+selenoid_URL = "http://selenoid:4444/wd/hub"
 
 @pytest.fixture()
 def driver(request):

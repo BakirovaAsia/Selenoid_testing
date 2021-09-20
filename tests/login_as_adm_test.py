@@ -13,7 +13,7 @@ from capabilities import capabilities
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s: %(message)s')
 logger = logging.getLogger()
 
-selenoid_URL = "http://192.168.20.178:4444/wd/hub"
+selenoid_URL = "http://selenoid:4444/wd/hub"
 
 def test_login_admin():
     #chrome_options = Options()

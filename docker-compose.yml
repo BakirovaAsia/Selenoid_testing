@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
     command: ["--selenoid-uri", "http://selenoid:4444"]
   web:
-    image: "vitacore/ies:latest"
+    image: "vitacore/ies:dev"
     network_mode: bridge
     ports:
       - "180:80"
@@ -39,4 +39,4 @@ services:
     restart: unless-stopped
     links:
       - selenoid
-      - web
+      - web'

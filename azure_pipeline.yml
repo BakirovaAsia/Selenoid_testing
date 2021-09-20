@@ -29,3 +29,11 @@ jobs:
       containerRegistry: 'DockerHub Asia'
       repository: bakirovaasia/tfstest
       Dockerfile: '**/Dockerfile_from_tomcat'
+
+- job: RunSelenoidAndTesting
+  steps:
+    - task: DockerCompose@0
+    displayName: 'Run a Docker Compose command'
+    inputs:
+      dockerComposeCommand: up
+      arguments: '-d'

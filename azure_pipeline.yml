@@ -42,7 +42,7 @@ jobs:
     displayName: 'Up enviroment and run testing'
     inputs:
       dockerComposeCommand: up
-      projectName: '$(Repository.Name)'
+      projectName: '$(Build.Repository.Name)'
 
   - task: DockerCompose@0
     displayName: 'Down enviroment and run testing'

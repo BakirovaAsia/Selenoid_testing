@@ -42,8 +42,10 @@ jobs:
     displayName: 'Up enviroment and run testing'
     inputs:
       dockerComposeCommand: up
+      projectName: ies
 
   - task: DockerCompose@0
     displayName: 'Down enviroment and run testing'
     inputs:
       dockerComposeCommand: down
+      projectName: ies

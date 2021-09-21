@@ -42,7 +42,7 @@ jobs:
     displayName: 'Up enviroment and run testing'
     inputs:
       dockerComposeCommand: up
-      dockerComposeFileArgs: 'DIR=$(Build.Repository.LocalPath)'
+      dockerComposeFileArgs: 'AGENTDIR=$(Build.Repository.LocalPath)'
       projectName: ies
       arguments: '--build'
 

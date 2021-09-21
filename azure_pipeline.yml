@@ -34,6 +34,9 @@ jobs:
   steps:
   - script: docker pull selenoid/chrome:89.0
     displayName: Pulling browser image
+  
+  - script: docker pull selenoid/video-recorder:latest-release
+    displayName: Pulling video-recorder image
 
   - task: DockerCompose@0
     displayName: 'Up enviroment and run testing'

@@ -5,7 +5,6 @@ services:
     network_mode: bridge
     ports:
       - "4444:4444"
-    restart: unless-stopped
     volumes:
       - "$PWD/config:/etc/selenoid" # assumed current dir contains browsers.json
       - "/var/run/docker.sock:/var/run/docker.sock"
@@ -23,14 +22,12 @@ services:
       - selenoid
     ports:
       - "8081:8080"
-    restart: unless-stopped
     command: ["--selenoid-uri", "http://selenoid:4444"]
   web:
     image: "vitacore/ies:dev"
     network_mode: bridge
     ports:
       - "180:80"
-    restart: unless-stopped
   testing:
     build:
       context: .

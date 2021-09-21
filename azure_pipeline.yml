@@ -39,15 +39,15 @@ jobs:
     displayName: Pulling video-recorder image
 
   - task: DockerCompose@0
+    displayName: 'Down enviroment and run testing'
+    inputs:
+      dockerComposeCommand: down
+      projectName: ies
+
+  - task: DockerCompose@0
     displayName: 'Up enviroment and run testing'
     inputs:
       dockerComposeCommand: up
       dockerComposeFileArgs: 'AGENTDIR=$(Build.Repository.LocalPath)'
       projectName: ies
       arguments: '-d --build'
-
-  - task: DockerCompose@0
-    displayName: 'Down enviroment and run testing'
-    inputs:
-      dockerComposeCommand: down
-      projectName: ies

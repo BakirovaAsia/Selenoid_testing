@@ -32,8 +32,16 @@ jobs:
 
 - job: RunSelenoidAndTesting
   steps:
+  - script: docker pull selenoid/chrome:89.0
+    displayName: Pulling browser image
+
   - task: DockerCompose@0
-    displayName: 'Run a Docker Compose command'
+    displayName: 'Up enviroment and run testing'
     inputs:
       dockerComposeCommand: up
-      arguments: '-d'
+      projectName: '$(Repository.Name)'
+
+  - task: DockerCompose@0
+    displayName: 'Down enviroment and run testing'
+    inputs:
+      dockerComposeCommand: down

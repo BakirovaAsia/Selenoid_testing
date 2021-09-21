@@ -21,7 +21,7 @@ def driver(request):
 
 
 def test_login_site(driver: webdriver):
-    driver.get(base_url)
+    driver.get("http://web:180/")
     field_login = driver.find_element_by_id('normal_login_username').send_keys('1')
     field_pass = driver.find_element_by_id('normal_login_password').send_keys('1')
 

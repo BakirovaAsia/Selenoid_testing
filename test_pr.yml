@@ -1,6 +1,10 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
 pr:
-- master
+  branches:
+    include:
+    - forPRtest
+    exclude:
+    - master
 
 variables:
   var1: value1
@@ -11,4 +15,6 @@ jobs:
     name: SPK-linux-debug
     
   steps:
-  - script: echo test PR trigger!
+  - script: echo test PR trigger! 2
+
+  - script: whoami && pwd

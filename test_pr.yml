@@ -12,3 +12,5 @@ jobs:
     
   steps:
   - script: echo test PR trigger!
+
+  - script: whoami && pwd

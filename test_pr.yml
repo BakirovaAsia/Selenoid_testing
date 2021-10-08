@@ -1,0 +1,14 @@
+name: $(Date:yyyyMMdd)$(Rev:.r)
+pr:
+- master
+
+variables:
+  var1: value1
+
+jobs:
+- job: One
+  pool:
+    name: SPK-linux-debug
+    
+  steps:
+  - script: echo test PR trigger!

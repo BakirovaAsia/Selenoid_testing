@@ -3,10 +3,16 @@ variables:
   var1: value1
 jobs:
 - job: One
+  pool:
+    name: SPK-linux-debug
+    
   steps:
   - script: echo First step!
 
 #- job: BuildAndPushDockerImage
+#  pool:
+#    name: SPK-linux-debug
+
 #  steps:
 #  - task: DockerInstaller@0
 #    displayName: 'Install Docker 20.10.7'
@@ -31,6 +37,9 @@ jobs:
 #      Dockerfile: '**/Dockerfile_from_tomcat'
 
 - job: RunSelenoidAndTesting
+  pool:
+    name: SPK-linux-debug
+
   steps:
   - script: docker pull selenoid/chrome:89.0
     displayName: Pulling browser image

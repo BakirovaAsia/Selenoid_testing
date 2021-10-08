@@ -11,7 +11,7 @@ services:
       - "$AGENTDIR/video:/opt/selenoid/video"
       - "$AGENTDIR/logs:/opt/selenoid/logs"
     environment:
-      - OVERRIDE_VIDEO_OUTPUT_DIR=$PWD/video
+      - OVERRIDE_VIDEO_OUTPUT_DIR=$AGENTDIR/video
     links:
       - web
     command: ["-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs"]
@@ -27,7 +27,7 @@ services:
     image: "vitacore/ies:dev"
     network_mode: bridge
     ports:
-      - "180:80"
+      - "80:80"
   testing:
     build:
       context: .

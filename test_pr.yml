@@ -2,9 +2,9 @@ name: $(Date:yyyyMMdd)$(Rev:.r)
 pr:
   branches:
     include:
-    - forPRtest
-    exclude:
     - master
+    exclude:
+    - forPRtest 
 
 variables:
   var1: value1

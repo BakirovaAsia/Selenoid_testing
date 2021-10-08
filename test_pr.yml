@@ -16,6 +16,6 @@ jobs:
     name: SPK-linux-debug
     
   steps:
-  - script: echo test PR trigger! 2 3
+  - script: echo test PR trigger! 2 3 4
 
   - script: whoami && pwd

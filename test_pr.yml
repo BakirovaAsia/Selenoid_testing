@@ -1,6 +1,6 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
 pr:
--master
+- master
 #  branches:
 #    include:
 #    - master

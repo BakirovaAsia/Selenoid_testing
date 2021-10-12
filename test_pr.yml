@@ -1,6 +1,6 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
 pr:
-- masters
+- master
 trigger:
   branches:
     exclude:

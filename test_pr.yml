@@ -22,7 +22,7 @@ jobs:
 
   - script: |
       if cd ./Selenoid_testing; 
-        then git pull origin ci ; 
+        then git pull origin forPRtest ; 
         else git clone -b forPRtest  git@github.com:BakirovaAsia/Selenoid_testing.git ./Selenoid_testing;
       fi
     displayName: Git clone/pull

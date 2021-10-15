@@ -22,7 +22,15 @@ jobs:
 
   - script: |
       if cd ./Selenoid_testing; 
-        then git pull origin forPRtest ; 
-        else git clone -b forPRtest  git@github.com:BakirovaAsia/Selenoid_testing.git ./Selenoid_testing;
+        then git pull origin ; 
+        else git clone  https://github.com/BakirovaAsia/Selenoid_testing.git ./Selenoid_testing 
+             git checkout forPRtest ;
       fi
     displayName: Git clone/pull
+
+  - script: |
+      git checkout master 
+      git pull --rebase origin master
+      git merge forPRtest
+      git push origin master 
+

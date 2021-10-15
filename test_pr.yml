@@ -24,6 +24,7 @@ jobs:
       if cd ./Selenoid_testing; 
         then git pull origin ; 
         else git clone  https://github.com/BakirovaAsia/Selenoid_testing.git ./Selenoid_testing 
+             cd ./Selenoid_testing
              git checkout forPRtest 
              git pull --rebase origin forPRtest;
       fi

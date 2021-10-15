@@ -30,6 +30,8 @@ jobs:
     displayName: Git clone/pull
 
   - script: |
+      git config --global user.email "you@mail.com"
+      git config --global user.name "YourName"
       git checkout master 
       git pull --rebase origin master
       git merge forPRtest

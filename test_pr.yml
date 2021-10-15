@@ -17,6 +17,6 @@ jobs:
   steps:
   - checkout: none
   
-  - script: echo test PR trigger! 2 3 4 5
+  - script: echo test PR trigger!1 2 3 4 5
 
   - script: whoami && pwd

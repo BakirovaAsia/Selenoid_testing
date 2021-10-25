@@ -1,12 +1,7 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
 pr:
 - forPRtest
-trigger:
-  branches:
-    exclude:
-    - master
-    - forPRtest 
-    - branch-2
+trigger: none
 
 variables:
   var1: value1

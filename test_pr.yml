@@ -13,21 +13,19 @@ jobs:
   steps:
   - checkout: none
 
-  - script: echo test PR trigger! 2 3 4 5 6 7 8 9
+  - script: echo test PR trigger! 2 3 4 5 6 7 8 9 10
 
   - script: |
       if cd ./Selenoid_testing; 
-        then git pull origin ; 
-        else git clone  https://github.com/BakirovaAsia/Selenoid_testing.git ./Selenoid_testing 
-             cd ./Selenoid_testing
-             git checkout forPRtest 
-             git pull --rebase origin forPRtest;
+        then git pull; 
+        else git clone https://github.com/BakirovaAsia/Selenoid_testing.git ./Selenoid_testing 
       fi
     displayName: Git clone/pull
 
   - script: |
       cd ./Selenoid_testing
       dir
+      git status
 #git push origin master 
 
 

@@ -33,6 +33,7 @@ jobs:
 #git push origin master 
 
   - script: |
+      cd ./Selenoid_testing
       git checkout forPRtest
       git merge --no-ff branch-2
       git push origin forPRtest

@@ -24,8 +24,18 @@ jobs:
 
   - script: |
       cd ./Selenoid_testing
-      dir
-      git status
+      git fetch origin
+      git checkout -b branch-2 origin/branch-2
+      git merge forPRtest
+      dir 
+      echo "run tests!!!!"
+    displayName: checkout and run test
 #git push origin master 
+
+  - script: |
+      git checkout forPRtest
+      git merge --no-ff branch-2
+      git push origin forPRtest
+    displayName: Merge pull request
 
 

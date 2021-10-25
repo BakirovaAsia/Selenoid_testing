@@ -1,11 +1,7 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
 pr:
-- master
-trigger:
-  branches:
-    exclude:
-    - master
-    - forPRtest 
+- forPRtest
+trigger: none
 
 variables:
   var1: value1
@@ -16,7 +12,26 @@ jobs:
     name: SPK-linux-debug
   steps:
   - checkout: none
-  
-  - script: echo test PR trigger!1 2 3 4 5
 
-  - script: whoami && pwd
+  - script: echo test PR trigger! 2 3 4 5 6 7 8 9
+
+  - script: |
+      if cd ./Selenoid_testing; 
+        then git pull origin ; 
+        else git clone  https://github.com/BakirovaAsia/Selenoid_testing.git ./Selenoid_testing 
+             cd ./Selenoid_testing
+             git checkout forPRtest 
+             git pull --rebase origin forPRtest;
+      fi
+    displayName: Git clone/pull
+
+  - script: |
+      cd ./Selenoid_testing
+      git config --global user.email "you@mail.com"
+      git config --global user.name "YourName"
+      git checkout master 
+      git pull --rebase origin master
+      git merge forPRtest
+#git push origin master 
+
+

@@ -12,6 +12,16 @@ jobs:
     name: SPK-linux-debug
   steps:
   - checkout: none
+  
+  - task: InstallSSHKey@0
+    displayName: 'Install an SSH key'
+    inputs:
+      knownHostsEntry: 'github.com'
+      sshPublicKey: '$(ssh-BA-GitHub)'
+      sshKeySecureFile: 'ssh-BA-GitHub'
+    
+  - script: ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+    displayName: Install key
 
   - script: echo test PR trigger! 2 3 4 5 6 7 8 9 10
 
@@ -30,7 +40,6 @@ jobs:
       dir 
       echo "run tests!!!!"
     displayName: checkout and run test
-#git push origin master 
 
   - script: |
       cd ./Selenoid_testing
@@ -38,5 +47,6 @@ jobs:
       git merge --no-ff branch-2
       git push origin forPRtest
     displayName: Merge pull request
+    enabled: false
 
 

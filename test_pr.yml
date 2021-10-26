@@ -40,6 +40,7 @@ jobs:
       git checkout -b branch-2 origin/branch-2
       git merge forPRtest
       cat ./test_pr.yml 
+      cat ./images_list
       echo "run tests!!!!"
     displayName: checkout and run test
 

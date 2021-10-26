@@ -36,6 +36,7 @@ jobs:
   - script: |
       cd ./Selenoid_testing
       git fetch origin
+      git checkout -b forPRtest origin/forPRtest
       git checkout -b branch-2 origin/branch-2
       git merge forPRtest
       cat ./test_pr.yml 
@@ -48,6 +49,6 @@ jobs:
       git merge --no-ff branch-2
       git push origin forPRtest
     displayName: Merge pull request
-    enabled: true
+    enabled: false
 
 

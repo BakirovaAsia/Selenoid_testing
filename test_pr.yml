@@ -36,7 +36,7 @@ jobs:
       git fetch origin
       git checkout -b branch-2 origin/branch-2
       git merge forPRtest
-      nano ./test_pr.yml 
+      cat ./test_pr.yml 
       echo "run tests!!!!"
     displayName: checkout and run test
 

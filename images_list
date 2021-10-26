@@ -2,7 +2,7 @@ docker pull
 
 
 selenoid/firefox:87.0
-selenoid/firefox:88.0
+selenoid/firefox:89.0
 
 selenoid/chrome:89.0
 selenoid/chrome:90.0

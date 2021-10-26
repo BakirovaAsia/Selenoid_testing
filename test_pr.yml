@@ -48,6 +48,6 @@ jobs:
       git merge --no-ff branch-2
       git push origin forPRtest
     displayName: Merge pull request
-    enabled: false
+    enabled: true
 
 

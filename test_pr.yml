@@ -53,4 +53,13 @@ jobs:
     displayName: Merge pull request
     enabled: false
 
+  - task: NodeTool@0
+    displayName: 'Use Node 14.x'
+    inputs:
+      versionSpec: 14.x
+  
+  - script: yarn install
+    displayName: Install dependencies
 
+  - script: yarn semantic-release
+    displayName: Release

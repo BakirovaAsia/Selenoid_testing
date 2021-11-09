@@ -9,16 +9,6 @@ jobs:
     name: SPK-linux-debug
   steps:
   - checkout: none
-  
-  - task: InstallSSHKey@0
-    displayName: 'Install an SSH key'
-    inputs:
-      knownHostsEntry: 'github.com'
-      sshPublicKey: '$(ssh-BA-GitHub)'
-      sshKeySecureFile: 'ssh-BA-GitHub'
-    
-  - script: ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-    displayName: Install key
 
   - script: |
       echo  $(Build.SourceBranch)

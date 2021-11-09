@@ -21,8 +21,8 @@ jobs:
     displayName: Install key
 
   - script: |
-    echo  $(Build.SourceBranch)
-    echo  $(system.pullRequest.sourceBranch)  
+      echo  $(Build.SourceBranch)
+      echo  $(system.pullRequest.sourceBranch)  
 
   - script: |
       if cd ./Selenoid_testing; 

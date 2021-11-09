@@ -10,6 +10,12 @@ jobs:
   steps:
   - checkout: none
 
+  - task: DownloadSecureFile@1
+    name: PAT_TFS_github_IES
+    displayName: 'Download secure file. PAT for bakirovaasia'
+    inputs:
+      secureFile: 'PAT_TFS_github_IES.txt'
+      
   - script: |
       echo  $(Build.SourceBranch)
       echo  $(Build.pullRequest.sourceBranch)  
@@ -40,4 +46,5 @@ jobs:
       cd ./Selenoid_testing
       yarn install
       yarn semantic-release
+    env: { GH_TOKEN:  $(PAT_TFS_github_IES.secureFilePath) }
     displayName: Release

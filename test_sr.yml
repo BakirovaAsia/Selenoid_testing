@@ -12,7 +12,17 @@ jobs:
 
   - script: |
       echo  $(Build.SourceBranch)
-      echo  $(system.pullRequest.sourceBranch)  
+      echo  $(Build.pullRequest.sourceBranch)  
+
+  - task: InstallSSHKey@0
+    displayName: 'Install an SSH key'
+    inputs:
+      knownHostsEntry: 'github.com'
+      sshPublicKey: '$(ssh-BA-GitHub)'
+      sshKeySecureFile: 'ssh-BA-GitHub'
+    
+  - script: ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+    displayName: Install key
 
   - script: |
       if cd ./Selenoid_testing; 

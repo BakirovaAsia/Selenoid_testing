@@ -4,7 +4,7 @@ trigger:
 - forPRtest
 
 jobs:
-- job: Semantic-release
+- job: SemanticRelease
   pool:
     name: SPK-linux-debug
   steps:

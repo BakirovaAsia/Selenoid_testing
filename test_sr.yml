@@ -1,7 +1,7 @@
 name: sr_$(Date:yyyyMMdd)$(Rev:.r)
 pr: none
 trigger: 
-- master
+- forPRtest
 
 jobs:
 - job: SemanticRelease
@@ -15,9 +15,10 @@ jobs:
       echo  $(system.pullRequest.sourceBranch)  
 
   - script: |
-
-      git clone https://github.com/BakirovaAsia/Selenoid_testing.git .
-      
+      if cd ./Selenoid_testing; 
+        then git pull; 
+        else git clone https://github.com/BakirovaAsia/Selenoid_testing.git ./Selenoid_testing 
+      fi
     displayName: Git clone/pull
 
   - task: NodeTool@0
@@ -25,8 +26,8 @@ jobs:
     inputs:
       versionSpec: 14.x
   
-  - script: yarn install
-    displayName: Install dependencies
-
-  - script: yarn semantic-release
+  - script: |
+      cd ./Selenoid_testing
+      yarn install
+      yarn semantic-release
     displayName: Release

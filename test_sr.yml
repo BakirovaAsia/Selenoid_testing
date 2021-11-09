@@ -1,7 +1,7 @@
 name: sr_$(Date:yyyyMMdd)$(Rev:.r)
 pr: none
 trigger: 
-- forPRtest
+- master
 
 jobs:
 - job: SemanticRelease
@@ -15,10 +15,9 @@ jobs:
       echo  $(system.pullRequest.sourceBranch)  
 
   - script: |
-      if cd ./Selenoid_testing; 
-        then git pull; 
-        else git clone https://github.com/BakirovaAsia/Selenoid_testing.git ./Selenoid_testing 
-      fi
+
+      git clone https://github.com/BakirovaAsia/Selenoid_testing.git .
+      
     displayName: Git clone/pull
 
   - task: NodeTool@0

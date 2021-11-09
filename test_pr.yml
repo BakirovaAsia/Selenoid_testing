@@ -11,12 +11,6 @@ jobs:
   pool:
     name: SPK-linux-debug
   steps:
-
-  - task: DownloadSecureFile@1
-    name: PAT_TFS_github_IES
-    displayName: 'Download secure file. PAT for bakirovaasia'
-    inputs:
-      secureFile: 'PAT_TFS_github_IES.txt'
   
   - task: InstallSSHKey@0
     displayName: 'Install an SSH key'

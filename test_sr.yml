@@ -1,0 +1,43 @@
+name: sr_$(Date:yyyyMMdd)$(Rev:.r)
+pr: none
+trigger: 
+- forPRtest
+
+jobs:
+- job: Semantic-release
+  pool:
+    name: SPK-linux-debug
+  steps:
+  - checkout: none
+  
+  - task: InstallSSHKey@0
+    displayName: 'Install an SSH key'
+    inputs:
+      knownHostsEntry: 'github.com'
+      sshPublicKey: '$(ssh-BA-GitHub)'
+      sshKeySecureFile: 'ssh-BA-GitHub'
+    
+  - script: ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+    displayName: Install key
+
+  - script: |
+    echo  $(Build.SourceBranch)
+    echo  $(system.pullRequest.sourceBranch)  
+
+  - script: |
+      if cd ./Selenoid_testing; 
+        then git pull; 
+        else git clone https://github.com/BakirovaAsia/Selenoid_testing.git ./Selenoid_testing 
+      fi
+    displayName: Git clone/pull
+
+  - task: NodeTool@0
+    displayName: 'Use Node 14.x'
+    inputs:
+      versionSpec: 14.x
+  
+  - script: yarn install
+    displayName: Install dependencies
+
+  - script: yarn semantic-release
+    displayName: Release

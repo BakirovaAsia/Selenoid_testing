@@ -25,6 +25,7 @@ jobs:
   - script: |
       echo test PR trigger! 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
       echo  $(Build.SourceBranch)
+      echo  $(system.pullRequest.sourceBranch)
       cat ./test_pr.yml 
 
   - script: |
@@ -52,15 +53,3 @@ jobs:
       git push origin forPRtest
     displayName: Merge pull request
     enabled: false
-
-  - task: NodeTool@0
-    displayName: 'Use Node 14.x'
-    inputs:
-      versionSpec: 14.x
-    enabled: false
-  
-  - script: yarn install
-    displayName: Install dependencies
-
-  - script: yarn semantic-release
-    displayName: Release

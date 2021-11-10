@@ -9,6 +9,21 @@ jobs:
     name: SPK-linux-debug
   steps:
   - checkout: none
+<<<<<<< HEAD
+=======
+
+  - task: DownloadSecureFile@1
+    name: PAT_TFS_github_IES
+    displayName: 'Download secure file. PAT for vitacoredo'
+    inputs:
+      secureFile: 'PAT_TFS_github_IES.txt'
+
+  - task: DownloadSecureFile@1
+    name: PAT_TFS_github_IES
+    displayName: 'Download secure file. PAT for bakirovaasia'
+    inputs:
+      secureFile: 'PAT_TFS_github_IES.txt'
+>>>>>>> b785e29b044294dbd59e1a92725c917dcc31b2e3
       
   - script: |
       echo  $(Build.SourceBranch)
@@ -35,7 +50,15 @@ jobs:
     displayName: 'Use Node 14.x'
     inputs:
       versionSpec: 14.x
-  
+    
+  - script: gh auth login --with-token < $(PAT_TFS.secureFilePath)
+    displayName: 'GitHub CLI login'
+
+  - script: |
+      cd ./Selenoid_testing
+      gh pr merge branch-2 -m
+    displayName: PR merge
+
   - script: |
       cd ./Selenoid_testing
       yarn install

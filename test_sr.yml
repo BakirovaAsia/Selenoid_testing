@@ -15,6 +15,12 @@ jobs:
 
   - task: DownloadSecureFile@1
     name: PAT_TFS_github_IES
+    displayName: 'Download secure file. PAT for vitacoredo'
+    inputs:
+      secureFile: 'PAT_TFS_github_IES.txt'
+
+  - task: DownloadSecureFile@1
+    name: PAT_TFS_github_IES
     displayName: 'Download secure file. PAT for bakirovaasia'
     inputs:
       secureFile: 'PAT_TFS_github_IES.txt'
@@ -45,7 +51,15 @@ jobs:
     displayName: 'Use Node 14.x'
     inputs:
       versionSpec: 14.x
-  
+    
+  - script: gh auth login --with-token < $(PAT_TFS.secureFilePath)
+    displayName: 'GitHub CLI login'
+
+  - script: |
+      cd ./Selenoid_testing
+      gh pr merge branch-2 -m
+    displayName: PR merge
+
   - script: |
       cd ./Selenoid_testing
       yarn install

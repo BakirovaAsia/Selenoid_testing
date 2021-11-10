@@ -21,8 +21,9 @@ jobs:
       
   - script: |
       echo  $(Build.SourceBranch)
-      echo  $(Build.pullRequest.sourceBranch)  
-
+      echo  $(Build.pullRequest.sourceBranch) 
+      export GH_TOKEN=$(PAT_TFS_github_IES.secureFilePath)
+      echo $GH_TOKEN
   - task: InstallSSHKey@0
     displayName: 'Install an SSH key'
     inputs:

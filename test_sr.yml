@@ -12,10 +12,10 @@ jobs:
 
   - task: DownloadSecureFile@1
     name: PAT_TFS_github_IES
-    displayName: 'Download secure file. PAT for bakirovaasia'
+    displayName: 'Download secure file. PAT for vitacoredo'
     inputs:
       secureFile: 'PAT_TFS_github_IES.txt'
-      
+
   - script: |
       echo  $(Build.SourceBranch)
       echo  $(Build.pullRequest.sourceBranch) 

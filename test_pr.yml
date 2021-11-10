@@ -11,6 +11,12 @@ jobs:
   pool:
     name: SPK-linux-debug
   steps:
+
+  - task: DownloadSecureFile@1
+    name: PAT_TFS_github_IES
+    displayName: 'Download secure file. PAT for vitacoredo'
+    inputs:
+      secureFile: 'PAT_TFS_github_IES.txt'
   
   - task: InstallSSHKey@0
     displayName: 'Install an SSH key'
@@ -45,6 +51,11 @@ jobs:
       cat ./images_list
       echo "run tests!!!!"
     displayName: checkout and run test
+
+  - script: |
+      cd ./Selenoid_testing
+      gh pr merge branch-2 -m
+    displayName: PR merge
 
   - script: |
       cd ./Selenoid_testing

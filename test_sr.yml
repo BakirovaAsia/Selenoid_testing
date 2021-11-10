@@ -9,7 +9,6 @@ jobs:
     name: SPK-linux-debug
   steps:
   - checkout: none
-<<<<<<< HEAD
 
   - task: DownloadSecureFile@1
     name: PAT_TFS_github_IES
@@ -17,14 +16,6 @@ jobs:
     inputs:
       secureFile: 'PAT_TFS_github_IES.txt'
 
-  - task: DownloadSecureFile@1
-    name: PAT_TFS_github_IES
-    displayName: 'Download secure file. PAT for bakirovaasia'
-    inputs:
-      secureFile: 'PAT_TFS_github_IES.txt'
-=======
->>>>>>> 275978695fcee3ebf948f9eaf674b26e8bc7ef1b
-      
   - script: |
       echo  $(Build.SourceBranch)
       echo  $(Build.pullRequest.sourceBranch) 

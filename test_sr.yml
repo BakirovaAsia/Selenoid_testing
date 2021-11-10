@@ -3,6 +3,9 @@ pr: none
 trigger: 
 - master
 
+variables:
+  GH_TOKEN: $(PAT_TFS_github_IES.secureFilePath)
+
 jobs:
 - job: SemanticRelease
   pool:
@@ -42,12 +45,8 @@ jobs:
     inputs:
       versionSpec: 14.x
   
-  - script: gh auth login --with-token < $(PAT_TFS_github_IES.secureFilePath)
-    displayName: 'GitHub CLI login'
-
   - script: |
       cd ./Selenoid_testing
       yarn install
       yarn semantic-release
-    env: { GH_TOKEN:  $(PAT_TFS_github_IES.secureFilePath) }
     displayName: Release

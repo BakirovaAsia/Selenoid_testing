@@ -42,6 +42,9 @@ jobs:
     inputs:
       versionSpec: 14.x
   
+  - script: gh auth login --with-token < $(PAT_TFS_github_IES.secureFilePath)
+    displayName: 'GitHub CLI login'
+
   - script: |
       cd ./Selenoid_testing
       yarn install

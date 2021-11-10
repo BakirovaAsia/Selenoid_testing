@@ -48,8 +48,8 @@ jobs:
 
   - script: |
       cd ./Selenoid_testing
-      git checkout forPRtest
-      git merge --no-ff branch-2
-      git push origin forPRtest
-    displayName: Merge pull request
-    enabled: false
+      yarn install
+      yarn semantic-release
+    env: 
+      GH_TOKEN: $(PAT_TFS_github_IES)
+    displayName: Release

@@ -4,7 +4,7 @@ trigger:
 - master
 
 variables:
-  GH_TOKEN: $(PAT_TFS_github_IES.secureFilePath)
+  GH_TOKEN: < $(PAT_TFS_github_IES.secureFilePath)
 
 jobs:
 - job: SemanticRelease

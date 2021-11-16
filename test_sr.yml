@@ -1,7 +1,10 @@
 name: sr_$(Date:yyyyMMdd)$(Rev:.r)
 pr: none
 trigger: 
-- master
+# master
+  tags: 
+    include:
+    - v*
 
 jobs:
 - job: SemanticRelease
@@ -9,7 +12,7 @@ jobs:
     name: SPK-linux-debug
   steps:
   - checkout: none
-      
+
   - script: |
       echo  $(Build.SourceBranch)
       echo  $(Build.pullRequest.sourceBranch) 
@@ -35,7 +38,9 @@ jobs:
     displayName: 'Use Node 14.x'
     inputs:
       versionSpec: 14.x
-  
+
+  - script: cat ./test_sr.yml
+
   - script: |
       cd ./Selenoid_testing
       yarn install
@@ -43,3 +48,4 @@ jobs:
     env: 
       GH_TOKEN: $(PAT_TFS_github_IES)
     displayName: Release
+    enabled: false

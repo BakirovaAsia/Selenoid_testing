@@ -11,6 +11,12 @@ jobs:
   pool:
     name: SPK-linux-debug
   steps:
+
+  - task: DownloadSecureFile@1
+    name: PAT_TFS_github_IES
+    displayName: 'Download secure file. PAT for vitacoredo'
+    inputs:
+      secureFile: 'PAT_TFS_github_IES.txt'
   
   - task: InstallSSHKey@0
     displayName: 'Install an SSH key'
@@ -23,7 +29,7 @@ jobs:
     displayName: Install key
 
   - script: |
-      echo test PR trigger! 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+      echo test PR trigger! 24
       echo  $(Build.SourceBranch)
       echo  $(system.pullRequest.sourceBranch)
       cat ./test_pr.yml 
@@ -48,8 +54,13 @@ jobs:
 
   - script: |
       cd ./Selenoid_testing
-      git checkout forPRtest
-      git merge --no-ff branch-2
-      git push origin forPRtest
-    displayName: Merge pull request
-    enabled: false
+      gh pr merge $(system.pullRequest.sourceBranch) -m
+    displayName: PR merge
+
+  - script: |
+      cd ./Selenoid_testing
+      yarn install
+      yarn semantic-release
+    env: 
+      GH_TOKEN: $(PAT_TFS_github_IES)
+    displayName: Release

@@ -54,7 +54,7 @@ jobs:
 
   - script: |
       cd ./Selenoid_testing
-      gh pr merge branch-2 -m
+      gh pr merge $(system.pullRequest.sourceBranch) -m
     displayName: PR merge
 
   - script: |
